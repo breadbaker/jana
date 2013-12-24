@@ -1,8 +1,15 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :pwd_hash, :token, :password
 
+	before_create :set_admin
 	validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
+	
+	def set_admin
+		if self.email == 'fake@fake.com'
+			self.admin = true	
+		end
+	end
 
   def change_pass!(data)
     return unless data[:new].length > 0

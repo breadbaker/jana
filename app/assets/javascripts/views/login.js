@@ -1,6 +1,8 @@
 Jana.Views.Login = Backbone.View.extend({
 	initialize: function(){
-		this.addHandlers();	
+		$('loginmodal').html(JST['login/login']());
+		this.addHandlers();
+		this.render();
 	},
 
 	el: 'username',
@@ -21,41 +23,45 @@ Jana.Views.Login = Backbone.View.extend({
 				success: function(resp){
 					Jana.user = new Jana.Models.User(resp.user);
 					that.modal($('loginmodal'));
-					that.$el.html(JST['login/user']());
+
+					that.render();
+
+					if( Jana.user.get('admin')){
+						if (!Jana.adminView){
+							Jana.adminView = new Jana.Views.AdminView();
+						}
+
+					}
 			  },
 				error: function(resp){
 					console.log(resp);
 				}
 			});
 		});
-		this.$el.delegate('a.changeLoginType', 'click', function(e){
+		$('loginmodal').delegate('a.changeLoginType', 'click', function(e){
 			e.preventDefault();
 			var template = $(this).attr('data-template');
-			that.$el.html(JST['login/'+template]());
+			$('loginmodal').html(JST['login/'+template]());
 		});
 		this.$el.delegate('button.logout','click', function(){
-			that.logoutButton.addClass('hide');
+			$(this).addClass('hide');
 			$.ajax({
 				type: 'POST',
 				url: '/sessions/destroy',
 				success: function(){
-					that.loginButton.removeClass('hide');
+					Jana.user = null;
+					that.render();
 				}
 			});
 		});
 	},
 
-	modal: function(el){
-		if(el.hasClass('hide')){
-			
-		}
-	},
-
-	modalHide: function(){
-	},
-
 	render: function(){
-		this.$el.html(JST[	
+		if( Jana.user){
+			this.$el.html(JST['login/user']());
+		} else {
+			this.$el.html(JST['login/nonuser']());
+		}
 	}
 	
 });

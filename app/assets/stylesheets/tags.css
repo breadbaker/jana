@@ -6,6 +6,7 @@ overlay {
   left: 0;
   top: 0;
   background: rgba(51,51,51,0.7);
+	z-index: 5;
 
 }
 
@@ -367,7 +368,6 @@ maincontent {
 sidebar {
   display: block;
   float: right;
-  color: white;
   width: 200px;
   margin: 20px;
 }
@@ -381,7 +381,6 @@ mainitems ul li {
   border-bottom: 1px solid rgba(255,255,255,0.15);
   font-size: 18px;
   padding: 5px;
-  color: rgba(255,255,255,0.65);
 
 }
 
@@ -468,6 +467,6 @@ postdate {
   margin-top: -30px;
 }
 
-loginmodal, mainholder, pieceview, newpieceform {
+loginmodal, mainholder, piecemodal, editpiecemodal, statsmodal {
 	display: block;
 }

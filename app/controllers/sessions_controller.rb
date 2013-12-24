@@ -1,12 +1,24 @@
 class SessionsController < ApplicationController
-
-	def new
-	end
+	skip_before_filter :current_user, only: [:create]
 
 	def create
-	end
+    begin
+      @user = User.find_by_token(cookies[:token])
+      @user = User.find_by_credentials!(params[:user]) unless @user
+      login(@user)
+      render json: @user, status: 200
+    rescue StandardError => e
+      logger.info e.message
+      head :bad_request
+    end
+  end
 
-	def destroy
-	end
+  def destroy
+    begin
+      logout
+    rescue
+    end
+    head :ok
+  end
 
 end

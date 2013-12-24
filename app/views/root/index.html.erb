@@ -1,11 +1,14 @@
-<loginmodal class=' modal trans hide hidden'>
+<loginmodal class='al-center modal trans hide hidden'>
 </loginmodal>
 
-<newpieceform class=' modal trans hide hidden'>
-</newpiecform>
+<editpiecemodal class=' modal trans hide hidden'>
+</editpiecemodal>
 
-<pieceview class=' modal trans hide hidden'>
-</pieceview>
+<statsmodal class='modal trans hide hidden'>
+</statsmodal>
+
+<piecemodal class=' modal trans hide hidden'>
+</piecemodal>
 
 <overlay class='hide hidden trans'>
 </overlay>
@@ -23,6 +26,18 @@
           <username>
           </username>
         </li>
+				<li class=' hide hidden trans adminButton' data-action='stats'>
+					<i class='fa fa-bar-chart-o'></i>
+					Stats
+				</li>
+				<li class=' hide hidden trans adminButton' data-action='newPiece'>
+					<i class='fa fa-cloud-upload'></i>
+					New Piece
+				</li>
+				<li class=' hide hidden trans adminButton' data-action='editPiece'>
+					<i class='fa fa-gears'></i>
+					Edit Pieces
+				</li>
         <li class='baritem' data-action='favorites'>
           <i class='fa fa-heart'></i>
           Favorites
