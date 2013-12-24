@@ -1,0 +1,43 @@
+html, body, h1 {
+  z-index:2;
+  padding: 0;
+  margin: 0;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,a:visited {
+  color: white;
+}
+
+
+nav {
+  line-height: 90px;
+  display: block;
+  width: 800px;
+  margin: auto;
+}
+
+
+
+article{
+  margin-bottom: 14px;
+}

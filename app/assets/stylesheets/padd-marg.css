@@ -1,0 +1,44 @@
+.space-up {
+  margin-top: 4px;
+}
+.space {
+  margin: 10px;
+}
+.space-30 {
+  margin: 30px;
+}
+
+.padd-0 {
+  padding: 0px;
+}
+.padd-30 {
+  padding: 30px;
+}
+.thick {
+  padding: 10px;
+}
+
+.thick-side {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.padd-left {
+  padding-left: 10px;
+}
+
+.marg-0 {
+  margin: 0;
+}
+.marg-10 {
+  margin: 10px;
+}
+
+.marg-auto {
+  margin:auto;
+}
+
+.marg-up-down {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}

@@ -1,0 +1,30 @@
+.float-left{
+  float:left;
+}
+.float-right{
+  float:right;
+}
+
+.al-right {
+  text-align:right;
+}
+
+.al-left {
+  text-align:left;
+}
+.al-center {
+  text-align:center;
+}
+
+
+
+.right {
+  float: right;
+}
+.left {
+  float:left;
+}
+
+.right-0 {
+  right: 0px;
+}
