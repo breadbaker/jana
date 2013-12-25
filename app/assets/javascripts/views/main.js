@@ -7,9 +7,17 @@ Jana.Views.Main = Backbone.View.extend({
 	},
 
 	addHandlers: function() {
+		
+	},
 
+	allPieces: function() {
+		
+	},
+
+	newPieces: function() {
 	},
 
 	render: function(){
+		
 	}
 });

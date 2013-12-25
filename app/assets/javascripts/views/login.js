@@ -3,9 +3,27 @@ Jana.Views.Login = Backbone.View.extend({
 		$('loginmodal').html(JST['login/login']());
 		this.addHandlers();
 		this.render();
+		this.checkLogin();
 	},
 
 	el: 'username',
+
+	checkLogin: function(){
+		var that = this;
+		$.ajax({
+			url: '/sessions',
+			type: 'POST',
+			success: function(resp){
+				Jana.user = new Jana.Models.User(resp.user);
+				that.render();
+				if( Jana.user.get('admin')){
+					if (!Jana.adminView){
+						Jana.adminView = new Jana.Views.AdminView();
+					}
+				}
+			}
+		});
+	},
 
 	addHandlers: function(){
 		var that = this;
@@ -19,6 +37,7 @@ Jana.Views.Login = Backbone.View.extend({
 			var url = form.attr('action');
 			$.ajax({
 				url: url,
+				type: "POST",
 				data: data,
 				success: function(resp){
 					Jana.user = new Jana.Models.User(resp.user);
@@ -46,8 +65,8 @@ Jana.Views.Login = Backbone.View.extend({
 		this.$el.delegate('button.logout','click', function(){
 			$(this).addClass('hide');
 			$.ajax({
-				type: 'POST',
-				url: '/sessions/destroy',
+				type: 'DELETE',
+				url: '/sessions',
 				success: function(){
 					Jana.user = null;
 					that.render();

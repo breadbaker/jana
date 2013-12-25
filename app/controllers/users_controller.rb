@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       @user.save
       render json: {user: @user}, status: 200
     rescue StandardError => e
+			puts e.message
       head :bad_request
     end
 	end

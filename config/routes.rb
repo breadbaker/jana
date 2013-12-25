@@ -2,7 +2,7 @@ Jana::Application.routes.draw do
 	
 	root to: 'root#index'
 
-	resources :sessions
+	resource :sessions
 	resources :users
 
 	resources :pieces

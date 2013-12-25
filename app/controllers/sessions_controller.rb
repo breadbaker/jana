@@ -6,7 +6,10 @@ class SessionsController < ApplicationController
       @user = User.find_by_token(cookies[:token])
       @user = User.find_by_credentials!(params[:user]) unless @user
       login(@user)
-      render json: @user, status: 200
+			data = {
+				user: @user
+			}
+      render json: data, status: 200
     rescue StandardError => e
       logger.info e.message
       head :bad_request

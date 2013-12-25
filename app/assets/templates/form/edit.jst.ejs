@@ -1,0 +1,41 @@
+<form action='/pieces'>
+	<label>Title
+		<input 
+			type='text' 
+			name='piece[title]' 
+			value='<%= piece.escape("title") %>'>
+	</label>
+
+	<% if ( piece.isNew()){ %>
+		<button data-action='newPhoto' class=' pieceAction nobord round-small bold bk-green white'>
+			Upload A Photo
+		</button>
+		<img class='hide hidden photoPreview'>
+	<% } else { %>
+		<img class='photoPreview' src='<%= piece.get("bigUrl") %>' >
+		<button data-action='newPhoto' class=' pieceAction nobord round-small bold bk-green white '>
+			Change Photo
+		</button>
+	<% } %>
+
+	<label>Caption
+		<input 
+			type='text' 
+			name='piece[caption]'
+			value='<%= piece.escape("caption") %>'>
+	</label>
+	
+	<% if ( piece.isNew()){ %>
+		<button data-action='createPiece' class='pieceAction nobord round-small bold bk-grey black'>
+			Create Piece
+		</button>
+	<% } else { %>
+		<button data-action='updatePiece' class='pieceAction nobord round-small bold bk-grey black'>
+			Update Piece
+		</button>
+		<button data-action='deletePiece' class='pieceAction nobord round-small bold bk-grey black'>
+			Delete Piece
+		</button>
+	<% } %>
+</form>
+<input type='file' class='newSrc'>
