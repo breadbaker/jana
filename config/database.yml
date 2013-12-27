@@ -52,4 +52,4 @@ production:
   database: jana_production
   pool: 5
   username: jana
-  password:
+  password: 
