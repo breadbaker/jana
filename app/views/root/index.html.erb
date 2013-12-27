@@ -1,3 +1,14 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=597142486964951";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
 <loginmodal class='al-center modal trans hide hidden'>
 </loginmodal>
 
@@ -16,17 +27,20 @@
 <mainholder class='top-level'>
 
 	<header class='al-center'>
-		<h1>Welcome</h1>
+
 	</header>
 
   <sidebar>
     <mainitems>
       <ul>
-        <li>
-          <username>
-          </username>
+        <li class='line-42'>
+          <h1>Jana's </h1>
+          <h1>Art</h1>
         </li>
-				<li class=' hide hidden trans adminButton' data-action='stats'>
+        <li>
+          <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="120px" data-layout="button_count" data-colorscheme='dark' data-action="like" data-show-faces="false" data-share="false"></div>
+        </li>
+        <li class=' hide hidden trans adminButton' data-action='stats'>
 					<i class='fa fa-bar-chart-o'></i>
 					Stats
 				</li>
@@ -50,6 +64,8 @@
           <i class='fa fa-eye'></i>
           All
         </li>
+        <username>
+        </username>
       </ul>
       <h3 class='under-line'>Followed Blogs</h3>
       <div class='followed-links'>

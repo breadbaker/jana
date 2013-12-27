@@ -345,7 +345,7 @@ maincontent article {
 searchBar input {
   background-color: rgb(44, 71, 98);
   margin-left: 40px;
-  width: 160px;
+  width: 150px;
   margin-top: 5px;
   color: white;
   border: none;
@@ -369,7 +369,7 @@ maincontent {
 sidebar {
   display: block;
   float: left;
-  width: 200px;
+  width: 150px;
   margin: 20px;
 }
 
@@ -471,3 +471,33 @@ postdate {
 loginmodal, mainholder, piecemodal, editpiecemodal, statsmodal, piecesholder {
 	display: block;
 }
+
+piecesholder {
+  float:left;
+  width: 600px;
+}
+piecesholder div {
+  width: 150px;
+  padding:10px;
+  margin: 15px;
+
+
+  float:left;
+}
+piecesholder div h3 {
+  font-size: 16px;
+  max-height: 18px;
+}
+piecesholder .caption {
+  display: none;
+}
+mainholder {
+  width: 800px;
+  margin:auto;
+}
+
+piecemodal img {
+  width: 90%;
+  margin-left: 5%;
+}
+piecemodal h3

@@ -1,6 +1,6 @@
 class Piece < ActiveRecord::Base
 
-  attr_accessible :image, :title, :caption
+  attr_accessible :image, :title, :caption, :date_finished
 
 	has_attached_file :image, styles: {
 		big: '600x600>',
@@ -12,6 +12,7 @@ class Piece < ActiveRecord::Base
 	{
     id: self.id,
 	 	title: self.title,
+    date_finished: self.date_finished.to_s,
 		caption: self.caption,
 		bigUrl: self.image.url(:big),
 		smallUrl: self.image.url(:small)

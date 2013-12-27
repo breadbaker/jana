@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :pwd_hash, :token, :password
+  attr_accessible :email, :pwd_hash, :token, :password, :first_name, :image, :last_name, :uid
 
 	before_create :set_admin
 	validates_presence_of  :email
   validates_uniqueness_of  :email
-	
+
 	def set_admin
 		if self.email == 'fake@fake.com'
-			self.admin = true	
+			self.admin = true
 		end
 	end
 

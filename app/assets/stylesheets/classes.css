@@ -24,8 +24,8 @@
 .modal {
   z-index: 11;
   position: absolute;
-  width: 60%;
-  margin-left: 20%;
+  width: 70%;
+  margin-left: 15%;
   margin-top: 5%;
   opacity:0;
 }
@@ -143,9 +143,7 @@ ul.tags li:nth-of-type(1){
 section.meta {
   display:none;
 }
-iframe {
-  display: none;
-}
+
 
 .photoPreview {
   width: 80%;
@@ -160,4 +158,14 @@ iframe {
 }
 .linkHand:hover {
   cursor: pointer;
+}
+
+.finished_date {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+
+.caption {
+  font-style:italic;
 }

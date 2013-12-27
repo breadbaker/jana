@@ -3,13 +3,23 @@ Jana.Views.Main = Backbone.View.extend({
 		this.mainHolder = $('mainholder');
 		this.render();
     Jana.piecesHolder = $('piecesholder');
-
+    this.pieceModal = $('piecemodal');
 		this.addHandlers();
 	},
 
 	addHandlers: function() {
-
+    var that = this;
+    Jana.piecesHolder.delegate('.viewPiece', 'click', function(){
+      that.viewPiece( $(this).attr('data-id'));
+    });
 	},
+
+  viewPiece: function(id) {
+    this.pieceModal.html(JST['piece/view']({
+      piece: Jana.allPieces.get(id),
+    }));
+    this.modal(this.pieceModal);
+  },
 
 	allPieces: function() {
     this.renderPieces(Jana.allPieces.models, 'thumb');
