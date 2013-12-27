@@ -1,42 +1,26 @@
 class UsersController < ApplicationController
-	skip_before_filter :current_user, only: [:create]
+	skip_before_filter :current_user, only: [:create,:confirm]
 
-	def new
-	end
+
 
   def create
-    auth = request.env['omniauth.auth']
-
-    user = User.find_by_uid(auth[:uid])
-
-    unless user
-     user = User.create!(
-       uid: auth[:uid],
-       first_name: auth[:info][:first_name],
-       last_name: auth[:info][:last_name],
-       email: auth[:info][:email],
-       image: auth[:info][:image]
-     )
+    begin
+      user = User.create(params[:user])
+      msg = UserMailer.confirmation_email(user)
+      msg.deliver!
+      render json: {message: "We have sent you a confirmation Email!"}, status: 200
+    rescue StandardError => e
+      puts e.message
+      render json: {message: e.message}, status: 400
     end
-
-    login(user)
-
-    session[:user_id] = user.id
-
-    redirect_to root_url
   end
 
-  # def create
-  #      begin
-  #       @user = User.new(params[:user])
-  #       login(@user)
-  #       @user.save
-  #       render json: {user: @user}, status: 200
-  #     rescue StandardError => e
-  #     puts e.message
-  #       head :bad_request
-  #     end
-  # end
+  def confirm
+    user = User.find_by_confirm_token(params[:confirm])
+    user.confirmed = true
+    login(user)
+    redirect_to root_url
+  end
 
 
 end

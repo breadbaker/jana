@@ -1,7 +1,17 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :pwd_hash, :token, :password, :first_name, :image, :last_name, :uid
+  attr_accessible(
+    :email,
+    :pwd_hash,
+    :token, :password,
+    :first_name,
+    :image,
+    :last_name,
+    :uid,
+    :confirmed,
+    :confirm_token
+  )
 
-	before_create :set_admin
+	before_create :set_admin,  :set_confirm_token
 	validates_presence_of  :email
   validates_uniqueness_of  :email
 
@@ -10,6 +20,10 @@ class User < ActiveRecord::Base
 			self.admin = true
 		end
 	end
+
+  def set_confirm_token
+    self.confirm_token = generate_token
+  end
 
   def change_pass!(data)
     return unless data[:new].length > 0

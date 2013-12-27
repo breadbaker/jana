@@ -9,7 +9,7 @@ module SessionsHelper
     current_user.reset_token!
   end
 
-	def is_admin? 
+	def is_admin?
 		current_user.email == 'fake@fake.com'
 	end
 

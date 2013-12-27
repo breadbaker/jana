@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131227190643) do
+ActiveRecord::Schema.define(:version => 20131227223159) do
 
   create_table "pieces", :force => true do |t|
     t.string   "image_file_name"
@@ -29,13 +29,15 @@ ActiveRecord::Schema.define(:version => 20131227190643) do
     t.string   "email"
     t.string   "token"
     t.string   "pwd_hash"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "admin",      :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "admin",         :default => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "uid"
     t.string   "image"
+    t.boolean  "confirmed",     :default => false
+    t.string   "confirm_token"
   end
 
 end

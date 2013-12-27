@@ -40,20 +40,24 @@ Jana.Views.Login = Backbone.View.extend({
 				type: "POST",
 				data: data,
 				success: function(resp){
-					Jana.user = new Jana.Models.User(resp.user);
 					that.modal($('loginmodal'));
+          if ( resp.message ) {
+            that.messageSuccess(resp.message, 2000);
+          } else {
+  					Jana.user = new Jana.Models.User(resp.user);
 
-					that.render();
+  					that.render();
 
-					if( Jana.user.get('admin')){
-						if (!Jana.adminView){
-							Jana.adminView = new Jana.Views.AdminView();
-						}
-
-					}
+  					if( Jana.user.get('admin')){
+  						if (!Jana.adminView){
+  							Jana.adminView = new Jana.Views.AdminView();
+  						}
+  					}
+          }
 			  },
 				error: function(resp){
 					console.log(resp);
+          that.messageFail(resp.responseJSON.message, 3000);
 				}
 			});
 		});
@@ -82,5 +86,5 @@ Jana.Views.Login = Backbone.View.extend({
 			this.$el.html(JST['login/nonuser']());
 		}
 	}
-	
+
 });
