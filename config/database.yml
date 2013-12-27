@@ -43,8 +43,8 @@ test:
   encoding: unicode
   database: jana_test
   pool: 5
-  username: jana
-  password:
+  username: postgres
+  password: password
 
 production:
   adapter: postgresql

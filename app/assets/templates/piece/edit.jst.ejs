@@ -1,0 +1,8 @@
+<div
+  data-id="<%= piece.get('id') %>"
+  data-action='editPiece'
+  class='adminButton piece'>
+	<h3><%= piece.escape('title') %></h3>
+	<img src="<%= piece.get('smallUrl') %>">
+	<p class='caption'><%= piece.escape('caption') %></p>
+</div>

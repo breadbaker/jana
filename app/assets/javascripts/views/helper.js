@@ -1,5 +1,5 @@
 _.extend(Backbone.View.prototype, {
-	
+
 	overlay: $('overlay'),
 
 	messenger: $('messenger'),
@@ -7,7 +7,7 @@ _.extend(Backbone.View.prototype, {
 	failMessenger: $('failmessenger'),
 
 	successMessenger: $('successmessenger'),
-	
+
   modal: function(el) {
 		if(el.hasClass('modal_active'))
 		{
@@ -15,6 +15,10 @@ _.extend(Backbone.View.prototype, {
 			this.hide(this.overlay, 200);
 			this.hide(el, 200);
 		} else {
+      var that = this;
+      this.overlay.one('click', function(){
+        that.modal(el);
+      });
 			el.addClass('modal_active');
 			this.unHide(this.overlay, 200);
 			this.unHide(el, 200);
@@ -49,7 +53,7 @@ _.extend(Backbone.View.prototype, {
     var that = this;
     setTimeout(
       function(){
-        that.unhide(el2,time);
+        that.unHide(el2,time);
       }
       , time);
   },
@@ -58,7 +62,7 @@ _.extend(Backbone.View.prototype, {
 		var s = this.successMessenger;
     s.html(m);
     var that = this;
-    this.unhide(s,200);
+    this.unHide(s,200);
     setTimeout(
       function(){
         that.hide(s,200);
@@ -68,7 +72,7 @@ _.extend(Backbone.View.prototype, {
 		var f = this.failMessenger;
     f.html(m);
     var that = this;
-    this.unhide(f,200);
+    this.unHide(f,200);
     setTimeout(
       function(){
         that.hide(f,200);
@@ -78,7 +82,7 @@ _.extend(Backbone.View.prototype, {
 		var mes = this.messenger;
     mes.html(m);
     var that = this;
-    this.unhide(mes,200);
+    this.unHide(mes,200);
     setTimeout(
       function(){
         that.hide(mes,200);

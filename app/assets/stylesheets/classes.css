@@ -146,3 +146,18 @@ section.meta {
 iframe {
   display: none;
 }
+
+.photoPreview {
+  width: 80%;
+  margin:auto;
+  display:block;
+}
+.photoButton {
+  font-size: 22px;
+  position: absolute;
+  bottom: 10px;
+  left: 25%;
+}
+.linkHand:hover {
+  cursor: pointer;
+}

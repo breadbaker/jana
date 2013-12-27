@@ -1,15 +1,16 @@
 Jana.Views.editPieceView = Backbone.View.extend({
-	
+
 	el: 'editpiecemodal',
 
 	initialize: function(){
-		
+
 		this.addHandlers();
 	},
 
 	addHandlers: function(){
 		var that = this;
-		this.$el.delegate('.pieceAction','click', function(){
+		this.$el.delegate('.pieceAction','click', function(e){
+      e.preventDefault();
 			var item = $(this);
 			var action = item.attr('data-action');
 			that[action].apply(that, item);
@@ -18,10 +19,10 @@ Jana.Views.editPieceView = Backbone.View.extend({
 			that.newPhotoSrc(this);
 		});
 	},
-	
+
 	exit: function(){
 		this.modal($('editpiecemodal'));
-		this.renderPieces(Jana.allPieces,
+		this.renderPieces(Jana.allPieces.models,'thumb');
 	},
 
 	newPhoto: function(){
@@ -31,12 +32,11 @@ Jana.Views.editPieceView = Backbone.View.extend({
 	createPiece: function(){
 		var that = this;
 		var data = this.$el.find('form').serializeJSON();
-		data['image'] = $('photoPreview').attr('src');
-		Jana.editPiece.set(data);
-		Jana.editPiece.save( { 
+		data.piece['image'] = $('.photoPreview').attr('src');
+		Jana.editPiece.save(data, {
 			success: function(resp) {
 				that.messageSuccess('Piece Created', 1000);
-				that.allPieces.add(resp.piece);
+				Jana.allPieces.add(resp.piece);
 				that.exit();
 			},
 			error: function(resp) {
@@ -46,12 +46,12 @@ Jana.Views.editPieceView = Backbone.View.extend({
 		});
 	},
 
-	savePiece: function(){
+	updatePiece: function(){
 		var that = this;
 		var data = this.$el.find('form').serializeJSON();
-		data['image'] = $('photoPreview').attr('src');
-		Jana.editPiece.set(data);
-		Jana.editPiece.save( { 
+		data.piece['image'] = $('.photoPreview').attr('src');
+
+		Jana.editPiece.save(data,{
 			success: function(resp) {
 				that.messageSuccess('Piece Saved', 1000);
 				that.exit();
@@ -74,12 +74,12 @@ Jana.Views.editPieceView = Backbone.View.extend({
     var that = this;
     if (input.files && input.files[0]) {
       var reader = new FileReader();
- 
-      reader.onload = function (e) {	
- 				$('photoPreview').attr('src', e.target.result);
- 				that.unHide($('photoPreview'),300);
+
+      reader.onload = function (e) {
+ 				$('.photoPreview').attr('src', e.target.result);
+
  			};
- 
+
       reader.readAsDataURL(input.files[0]);
     }
   }

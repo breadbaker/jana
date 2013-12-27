@@ -9,11 +9,11 @@ Jana.Views.AdminView = Backbone.View.extend({
 
 	addHandlers: function(){
 		var that = this;
-		$('.adminButton').on('click',function(){
+		$('body').delegate('.adminButton','click',function(){
 			var item = $(this);
 			console.log(item);
 			var action = item.attr('data-action');
-			that[action].apply(this, item);
+			that[action].apply(that, item);
 		});
 	},
 
@@ -22,15 +22,15 @@ Jana.Views.AdminView = Backbone.View.extend({
 	},
 
 	editPiece: function(item){
-		Jana.editPiece = Jana.allPieces.get(item.attr('data-id'));
+		Jana.editPiece = Jana.allPieces.get($(item).attr('data-id'));
 		Jana.editPieceView.render();
-		this.modal($('newpiecemodal'));
+		this.modal($('editpiecemodal'));
 	},
 
 	newPiece: function(){
 		Jana.editPiece = new Jana.Models.Piece();
 		Jana.editPieceView.render();
-		this.modal($('newpiecemodal'));
+		this.modal($('editpiecemodal'));
 	},
 
 	stats: function(){

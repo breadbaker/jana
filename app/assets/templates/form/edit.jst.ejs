@@ -1,30 +1,37 @@
+<% var piece = Jana.editPiece %>
 <form action='/pieces'>
-	<label>Title
-		<input 
-			type='text' 
-			name='piece[title]' 
+	<label class='block al-center'>Title
+		<input
+			type='text'
+			name='piece[title]'
 			value='<%= piece.escape("title") %>'>
 	</label>
 
 	<% if ( piece.isNew()){ %>
-		<button data-action='newPhoto' class=' pieceAction nobord round-small bold bk-green white'>
-			Upload A Photo
-		</button>
-		<img class='hide hidden photoPreview'>
+    <div class='pos-rel'>
+  		<button data-action='newPhoto' class='linkHand photoUpload pieceAction nobord round-small bold bk-green white photoButton'>
+  			Upload Photo
+  		</button>
+  		<img
+        class='photoPreview'    src='http://toolsfortheimagination.files.wordpress.com/2011/10/paint-canvas.jpg'>
+    </div>
 	<% } else { %>
-		<img class='photoPreview' src='<%= piece.get("bigUrl") %>' >
-		<button data-action='newPhoto' class=' pieceAction nobord round-small bold bk-green white '>
-			Change Photo
-		</button>
+	  <div class='pos-rel'>
+    	<img class='photoPreview' src='<%= piece.get("bigUrl") %>' >
+  		<button data-action='newPhoto' class='linkHand  pieceAction nobord round-small bold bk-green white photoButton'>
+  			Change Photo
+  		</button>
+    </div>
 	<% } %>
 
-	<label>Caption
-		<input 
-			type='text' 
+	<label class=' block al-center'>Caption
+		<textarea
+			class='bk-grey nobord font-18 round-big bk-grey thick '
 			name='piece[caption]'
-			value='<%= piece.escape("caption") %>'>
+			><%= piece.escape("caption") %>
+    </textarea>
 	</label>
-	
+
 	<% if ( piece.isNew()){ %>
 		<button data-action='createPiece' class='pieceAction nobord round-small bold bk-grey black'>
 			Create Piece
@@ -38,4 +45,4 @@
 		</button>
 	<% } %>
 </form>
-<input type='file' class='newSrc'>
+<input type='file' class='hide newSrc'>

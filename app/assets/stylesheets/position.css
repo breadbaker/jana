@@ -16,7 +16,9 @@
   text-align:center;
 }
 
-
+.pos-rel {
+  position:relative;
+}
 
 .right {
   float: right;
