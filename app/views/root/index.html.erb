@@ -7,7 +7,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<% if flassh[:message] %>
+<% if flash[:message] %>
   <div id='message' class='hide'>
   <%= flash[:message] %>
   </div>
@@ -51,7 +51,8 @@
 					<i class='fa fa-cloud-upload'></i>
 					New Piece
 				</li>
-        <!-- <li class='baritem' data-action='favorites'>
+        <div class=hide >
+        <li class='baritem' data-action='favorites'>
           <i class='fa fa-heart'></i>
           Favorites
         </li>
@@ -66,11 +67,12 @@
         <li class='baritem' data-action='all'>
           <i class='fa fa-eye'></i>
           All
-        </li> -->
+        </li>
+      </div>
         <username>
         </username>
       </ul>
-      <h3 class='under-line'>Followed Blogs</h3>
+      <h3 class='hide under-line'>Followed Blogs</h3>
       <div class='followed-links'>
       </div>
     </mainitems>

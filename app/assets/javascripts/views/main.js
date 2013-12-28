@@ -1,6 +1,6 @@
 Jana.Views.Main = Backbone.View.extend({
 	initialize: function(){
-    if ($('#message')) {
+    if ($('#message').length > 0) {
       this.messageNotify($('#message').html(), 2000);
     }
     this.mainHolder = $('mainholder');
