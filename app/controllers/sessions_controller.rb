@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
   end
 
   def forgot
-    user = User.find_by_email([:user][:email])
+    user = User.find_by_email(params[:user][:email])
     if user
       user.set_confirm_token
       user.save!
