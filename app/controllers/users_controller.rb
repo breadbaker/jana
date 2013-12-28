@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       msg.deliver!
       render json: {message: "We have sent you a confirmation Email!"}, status: 200
       #rescue StandardError => e
-      puts e.message
+      #puts e.message
       #render json: {message: e.message}, status: 400
       #end
   end
