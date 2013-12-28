@@ -50,7 +50,9 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:user][:email])
     if user
       user.set_confirm_token
+
       user.save!
+      puts 'etnsauhoeasohtus'+ user.confirm_token
       msg = UserMailer.recover_email(user)
       msg.deliver!
       render json: { message: "We have sent you an email with instuctions."}, status: 200
