@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     begin
       current_user.change_pass!(params[:user])
       current_user.save!
-      flash[:message] = "Password Updated! Please Log in!"
+      flash[:message] = "Password Updated!"
       redirect_to root_url
     rescue StandardError => e
       flash[:message] = e.message

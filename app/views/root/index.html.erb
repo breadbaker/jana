@@ -7,10 +7,11 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-
-<div id='message' class='hide'>
-<%= flash[:message] ? flash[:message] : '' %>
-</div>
+<% if flassh[:message] %>
+  <div id='message' class='hide'>
+  <%= flash[:message] %>
+  </div>
+<% end %>
 <loginmodal class='al-center modal trans hide hidden'>
 </loginmodal>
 
@@ -50,7 +51,7 @@
 					<i class='fa fa-cloud-upload'></i>
 					New Piece
 				</li>
-        <li class='baritem' data-action='favorites'>
+        <!-- <li class='baritem' data-action='favorites'>
           <i class='fa fa-heart'></i>
           Favorites
         </li>
@@ -65,7 +66,7 @@
         <li class='baritem' data-action='all'>
           <i class='fa fa-eye'></i>
           All
-        </li>
+        </li> -->
         <username>
         </username>
       </ul>

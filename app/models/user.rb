@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of  :email
 
 	def set_admin
-		if self.email == 'fake@fake.com'
+		if ['janabake@gmail.com','danielebaker@gmail.com'].include?(self.email)
 			self.admin = true
 		end
 	end
