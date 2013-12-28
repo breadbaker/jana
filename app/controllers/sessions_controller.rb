@@ -46,6 +46,19 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  def forgot
+    user = User.find_by_email([:user][:email])
+    if user
+      user.set_confirm_token
+      user.save!
+      msg = UserMailer.recover_email(user)
+      msg.deliver!
+      render json: { message: "We have sent you an email with instuctions."}, status: 200
+    else
+      render json: { message: 'Invalid Email'}, status: 400
+    end
+  end
+
 
   def destroy
     begin

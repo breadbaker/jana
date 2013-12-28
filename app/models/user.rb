@@ -26,15 +26,10 @@ class User < ActiveRecord::Base
   end
 
   def change_pass!(data)
-    return unless data[:new].length > 0
-    raise "Incorrect Password" unless self.has_password?(data[:password])
-
     if data[:new] != data[:confirm]
       raise 'Passwords do not match'
     end
     self.password= data[:new]
-
-    return 'Password Changed'
   end
 
   def change_email!(data)
