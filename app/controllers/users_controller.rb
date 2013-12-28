@@ -4,15 +4,15 @@ class UsersController < ApplicationController
 
 
   def create
-    begin
+    #begin
       user = User.create(params[:user])
       msg = UserMailer.confirmation_email(user)
       msg.deliver!
       render json: {message: "We have sent you a confirmation Email!"}, status: 200
-    rescue StandardError => e
+      #rescue StandardError => e
       puts e.message
-      render json: {message: e.message}, status: 400
-    end
+      #render json: {message: e.message}, status: 400
+      #end
   end
 
   def confirm

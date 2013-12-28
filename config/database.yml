@@ -15,6 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
+  host: localhost
   database: jana_development
   pool: 5
   username: postgres

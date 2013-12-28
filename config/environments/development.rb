@@ -14,7 +14,7 @@ Jana::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -39,8 +39,10 @@ Jana::Application.configure do
 		storage: :s3,
 		s3_credentials: {
 			bucket: 'jana-art',
-			access_key_id: ENV['S3_KEY'], 
-			secret_access_key: ENV['S3_SECRET'] 
+			access_key_id: ENV['S3_KEY'],
+			secret_access_key: ENV['S3_SECRET']
 		}
 	}
+  config.action_mailer.default_url_options = {host: 'localhost:3000'}
+  config.action_mailer.perform_deliveries = true
 end
