@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "welcome@janas-art.herokuapp.com"
+  default from: "welcome@janabaker.us"
 
   def confirmation_email(user)
     @user = user
