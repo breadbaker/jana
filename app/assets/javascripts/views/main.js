@@ -1,6 +1,9 @@
 Jana.Views.Main = Backbone.View.extend({
 	initialize: function(){
-		this.mainHolder = $('mainholder');
+    if ($('#message').html() != '') {
+      this.messageNotify($('#message').html(), 2000);
+    }
+    this.mainHolder = $('mainholder');
 		this.render();
     Jana.piecesHolder = $('piecesholder');
     this.pieceModal = $('piecemodal');

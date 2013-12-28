@@ -1,10 +1,10 @@
 <passwordrecovery>
+  <h1>Reset Password</h1>
   <form action=<%= update_password_user_url %> method=POST >
     <input
       type=hidden
       name=authenticity_token
       value=<%= form_authenticity_token %> >
-      <input>
     	<roundform>
     		<input type='password' name='user[new]' placeholder='new password'>
     		<input type='password' name='user[confirm]' placeholder='confirm password'>

@@ -500,4 +500,11 @@ piecemodal img {
   width: 90%;
   margin-left: 5%;
 }
-piecemodal h3
+passwordrecovery {
+  display: block;
+
+  width: 400px;
+
+  margin:auto;
+  margin-top: 200px;
+}

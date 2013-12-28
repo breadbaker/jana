@@ -5,7 +5,8 @@ window.Jana = {
   Routers: {},
   initialize: function() {
 
-
+    
+    
 		Jana.loginView = new Jana.Views.Login();
 		Jana.mainView = new Jana.Views.Main();
 

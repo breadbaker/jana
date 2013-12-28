@@ -8,6 +8,8 @@ gem 'rails', '3.2.13'
 gem 'pg'
 
 group :development do
+  gem 'binding_of_caller'
+  gem 'better_errors'
   gem 'faker'
 end
 

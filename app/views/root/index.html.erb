@@ -8,7 +8,9 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-
+<div id='message' class='hide'>
+<%= flash[:message] ? flash[:message] : '' %>
+</div>
 <loginmodal class='al-center modal trans hide hidden'>
 </loginmodal>
 
