@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	skip_before_filter :current_user, only: [:create,:confirm]
+	skip_before_filter :current_user, only: [:create,:confirm, :recover]
 
 
   def update
@@ -35,8 +35,8 @@ class UsersController < ApplicationController
 
   def update_password
     begin
-      user.change_pass!(params)
-      user.save!
+      current_user.change_pass!(params)
+      current_user.save!
       flash[:message] = "Password Updated!"
       redirect_to root_url
     rescue StandardError => e

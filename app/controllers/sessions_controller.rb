@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	skip_before_filter :current_user, only: [:create]
+	skip_before_filter :current_user, only: [:create, :forgot]
 
 	def create
     begin
