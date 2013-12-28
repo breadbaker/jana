@@ -2,6 +2,8 @@ _.extend(Backbone.View.prototype, {
 
 	overlay: $('overlay'),
 
+  fullOverlay: $('overlayFull'),
+
 	messenger: $('messenger'),
 
 	failMessenger: $('failmessenger'),
@@ -56,6 +58,17 @@ _.extend(Backbone.View.prototype, {
         that.unHide(el2,time);
       }
       , time);
+  },
+
+  fullWait: function(m, time){
+    var that = this;
+    this.unhide(this.fullOverlay, time);
+    this.messageNotify( m, 2000);
+    setTimeout(
+      function(){
+        that.hide(that.fullOverlay);
+      }, time);
+
   },
 
   messageSuccess: function(m, time) {

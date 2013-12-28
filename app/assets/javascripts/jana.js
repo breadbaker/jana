@@ -5,12 +5,13 @@ window.Jana = {
   Routers: {},
   initialize: function() {
 
-    
-    
-		Jana.loginView = new Jana.Views.Login();
-		Jana.mainView = new Jana.Views.Main();
 
+
+		Jana.loginView = new Jana.Views.Login();
 		Jana.allPieces = new Jana.Collections.Pieces();
+    Jana.mainView = new Jana.Views.Main();
+
+
 		Jana.allPieces.url = '/pieces';
 		Jana.allPieces.fetch({
 			success: function(){

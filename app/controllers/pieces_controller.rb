@@ -26,7 +26,16 @@ class PiecesController < ApplicationController
         piece.image.destroy
       end
       piece.update_attributes(params[:piece])
-      puts 'updot'
+      render json: piece
+    rescue StandardError => e
+      render json: {message: e.message}, status: 400
+    end
+  end
+
+  def destroy
+    begin
+      piece = Piece.find(params[:id])
+      piece.destroy
       render json: piece
     rescue StandardError => e
       render json: {message: e.message}, status: 400

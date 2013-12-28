@@ -8,6 +8,10 @@ Jana.Views.Main = Backbone.View.extend({
     Jana.piecesHolder = $('piecesholder');
     this.pieceModal = $('piecemodal');
 		this.addHandlers();
+    var that = this;
+    this.listenTo( Jana.allPieces, 'add', function( ){ that.allPieces();});
+
+    this.listenTo( Jana.allPieces, 'remove', function( ){ that.allPieces();});
 	},
 
 	addHandlers: function() {
