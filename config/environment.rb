@@ -10,7 +10,7 @@ Jana::Application.initialize!
 
 ActionMailer::Base.perform_deliveries = true
 ActionMailer::Base.raise_delivery_errors = true
-ActionMailer::Base.default_url_options = { :host => 'www.myapp.com' }
+ActionMailer::Base.default_url_options = { :host => 'www.janabaker.us' }
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true,
