@@ -52,5 +52,5 @@ production:
   database: jana_production
   pool: 5
   username: jana
-  host: http://janabaker.us
+  host: http://janabaker.us/
   password:
