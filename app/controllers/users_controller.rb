@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     begin
       user = User.create(params[:user])
       msg = UserMailer.confirmation_email(user)
+
+      msg.deliver!
+      msg = UserMailer.tell_dan(user)
       msg.deliver!
       render json: {message: "We have sent you a confirmation Email!"}, status: 200
     rescue StandardError => e
