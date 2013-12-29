@@ -1,4 +1,4 @@
-<% if (Jana.user.get('admin')) { %>
+<% if (Jana.user && Jana.user.get('admin')) { %>
 
   <div
     data-id="<%= piece.get('id') %>"
