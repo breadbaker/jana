@@ -11,9 +11,16 @@ class User < ActiveRecord::Base
     :confirm_token
   )
 
+  before_save :legit_email
+
 	before_create :set_admin,  :set_confirm_token
 	validates_presence_of  :email
+
   validates_uniqueness_of  :email
+
+  def legit_email
+    raise "Invalid Email" unless self.email && self.email.match(/^.+@.+$/)
+  end
 
 	def set_admin
 		if ['janabake@gmail.com','danielebaker@gmail.com'].include?(self.email)

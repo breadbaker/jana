@@ -31,6 +31,7 @@ Jana.Views.Login = Backbone.View.extend({
 			that.modal($('loginmodal'));
 		});
 		$('loginmodal').delegate('form','submit',function(e){
+      $('loginmodal').find('form').find('button').attr('disabled',true);
 			e.preventDefault();
 			var form = $(this);
 			var data = form.serializeJSON();
@@ -57,6 +58,8 @@ Jana.Views.Login = Backbone.View.extend({
 			  },
 				error: function(resp){
 					console.log(resp);
+
+          $('loginmodal').find('form').find('button').attr('disabled',false);
           that.messageFail(resp.responseJSON.message, 3000);
 				}
 			});
