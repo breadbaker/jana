@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       msg.deliver!
       msg = UserMailer.tell_dan(user)
       msg.deliver!
-      render json: {message: "We have sent you a confirmation Email!"}, status: 200
+      render json: {message: "We have sent you a confirmation Email! It may have been marked as spam!"}, status: 200
     rescue StandardError => e
       puts e.message
       render json: {message: e.message}, status: 400

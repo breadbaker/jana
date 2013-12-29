@@ -13,7 +13,6 @@
 <% } else { %>
 
   <div data-id="<%= piece.get('id') %>" class='viewPiece piece'>
-  	<h3><%= piece.escape('title') %></h3>
   	<img src="<%= piece.get('smallUrl') %>">
   	<p class='caption'><%= piece.escape('caption') %></p>
   </div>
