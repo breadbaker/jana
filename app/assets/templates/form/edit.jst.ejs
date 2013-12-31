@@ -1,48 +1,77 @@
 <% var piece = Jana.editPiece %>
+
+	<% if ( piece.isNew()){ %>
+  <h1 class='al-center space'>New Piece</h1>
+  <% } else { %>
+  <h1 class='al-center space'>Edit Piece</h1>
+  	<% } %>
 <form action='/pieces'>
-	<label class='block al-center'>Title
+
+<div class='width-60 marg-auto group'>
+  <div class='left half'>
+	 <label class='right line-22  thick'>Title:</label>
+  </div>
+  <div class='right half'>
 		<input
 			type='text'
+      class='left thick font-14'
 			name='piece[title]'
 			value='<%= piece.escape("title") %>'>
-	</label>
+  </div>
+</div>
+
+<div class='width-60 marg-auto group space-up'>
+  <div class='left half'>
+	 <label class='right line-22  thick'>Caption:</label>
+  </div>
+  <div class='right half'>
+		<textarea
+      onkeyup="textAreaAdjust(this)"
+			class='thick left font-14'
+			name='piece[caption]'
+			><%= piece.escape("caption") %>
+    </textarea>
+  </div>
+</div>
+
+<div class='width-60 marg-auto group'>
+  <div class='left half'>
+  </div>
+  <div class='right half space-vert'>
+
+	<% if ( piece.isNew()){ %>
+		<button data-action='createPiece' class='pieceAction nobord round-small bold bk-grey black font-18 left'>
+			Create Piece
+		</button>
+		<button data-action='newPhoto' class='linkHand photoUpload pieceAction nobord round-small fontbold bk-green white photoButton'>
+			Upload Photo
+		</button>
+	<% } else { %>
+		<button data-action='updatePiece' class='pieceAction nobord round-small bold bk-grey black font-18'>
+			Update Piece
+		</button>
+		<button data-action='deletePiece' class='pieceAction nobord round-small bold bk-red white  font-18'>
+			Delete Piece
+		</button>
+		<button data-action='newPhoto' class='linkHand photoUpload pieceAction nobord round-small bold bk-green white photoButton'>
+			Upload Photo
+		</button>
+	<% } %>
+  </div>
+</div>
+
 
 	<% if ( piece.isNew()){ %>
     <div class='pos-rel'>
-  		<button data-action='newPhoto' class='linkHand photoUpload pieceAction nobord round-small bold bk-green white photoButton'>
-  			Upload Photo
-  		</button>
   		<img
         class='photoPreview'    src='http://toolsfortheimagination.files.wordpress.com/2011/10/paint-canvas.jpg'>
     </div>
 	<% } else { %>
 	  <div class='pos-rel'>
     	<img class='photoPreview' src='<%= piece.get("bigUrl") %>' >
-  		<button data-action='newPhoto' class='linkHand  pieceAction nobord round-small bold bk-green white photoButton'>
-  			Change Photo
-  		</button>
     </div>
 	<% } %>
 
-	<label class=' block al-center'>Caption
-		<textarea
-			class='bk-grey nobord font-18 round-big bk-grey thick '
-			name='piece[caption]'
-			><%= piece.escape("caption") %>
-    </textarea>
-	</label>
 
-	<% if ( piece.isNew()){ %>
-		<button data-action='createPiece' class='pieceAction nobord round-small bold bk-grey black'>
-			Create Piece
-		</button>
-	<% } else { %>
-		<button data-action='updatePiece' class='pieceAction nobord round-small bold bk-grey black'>
-			Update Piece
-		</button>
-		<button data-action='deletePiece' class='pieceAction nobord round-small bold bk-grey black'>
-			Delete Piece
-		</button>
-	<% } %>
 </form>
 <input type='file' class='hide newSrc'>

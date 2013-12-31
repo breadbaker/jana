@@ -47,7 +47,7 @@ Jana.Views.editPieceView = Backbone.View.extend({
 			error: function(resp) {
 				console.log(resp);
 				that.messageFail('Fail', 1000);
-        this.hide($('overlayFull'), 200);
+        that.hide($('overlayFull'), 200);
 			}
 		});
 	},

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require serializeJSON
+//= require util
 //= require underscore
 //= require backbone
 //= require jana

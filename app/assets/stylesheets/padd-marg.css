@@ -1,8 +1,12 @@
 .space-up {
-  margin-top: 4px;
+  margin-top: 10px !important;
 }
 .space {
   margin: 10px;
+}
+.space-vert {
+  margin-top:20px;
+  margin-bottom: 20px;
 }
 .space-30 {
   margin: 30px;
@@ -27,6 +31,9 @@
   padding-left: 10px;
 }
 
+.padd-down {
+  padding-bottom: 50px;
+}
 .marg-0 {
   margin: 0;
 }

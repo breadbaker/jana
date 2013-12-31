@@ -153,8 +153,7 @@ section.meta {
 .photoButton {
   font-size: 22px;
   position: absolute;
-  bottom: 10px;
-  left: 25%;
+  right: 10%;
 }
 .linkHand:hover {
   cursor: pointer;

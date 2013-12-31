@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       render json: data, status: 200
     rescue StandardError => e
       logger.info e.message
-      render json: { message: 'Invalid Login'}, status: 400
+      render json: { message: e.message }, status: 400
     end
   end
 
