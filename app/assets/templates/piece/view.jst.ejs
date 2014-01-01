@@ -1,7 +1,12 @@
 <div class='space line-34'>
 <h3><%= piece.escape('title') %></h3>
+<% if (piece.finished()){ %>
 <p class='finished_date'><%= piece.finished() %></p>
+<% } %>
+
 </div>
 <img src="<%= piece.get('bigUrl') %>">
+<% if (piece.escape('caption').length > 4 ){ %>
 <p class='space caption'>"<%= piece.escape('caption') %>"</p>
+<% } %>
 

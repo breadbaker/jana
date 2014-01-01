@@ -38,6 +38,7 @@ Jana.Views.editPieceView = Backbone.View.extend({
 		var that = this;
 		var data = this.$el.find('form').serializeJSON();
 		data.piece['image'] = $('.photoPreview').attr('src');
+    data.piece['caption'] = data.piece['caption'].replace(/\s+/g, ' ');
 		Jana.editPiece.save(data, {
 			success: function(resp) {
 				that.messageSuccess('Piece Created', 1000);
@@ -57,6 +58,7 @@ Jana.Views.editPieceView = Backbone.View.extend({
 		var that = this;
 		var data = this.$el.find('form').serializeJSON();
 		data.piece['image'] = $('.photoPreview').attr('src');
+    data.piece['caption'] = data.piece['caption'].replace(/\s+/g, ' ');
 
 		Jana.editPiece.save(data,{
 			success: function(resp) {

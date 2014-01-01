@@ -327,7 +327,7 @@ cancelbutton {
   float:right;
 }
 
-quickdashbubble, texttitle, texttext, textpostform, textoptions loginview, topdashview, blogview{
+username, quickdashbubble, texttitle, texttext, textpostform, textoptions loginview, topdashview, blogview{
   display: block;
 
 }
@@ -337,11 +337,18 @@ texttitle{
   font-weight: bold;
 }
 
-mainitems ul li:hover {
+mainitems ul li.title {
   background-color: grey;
   color: rgba(255,255,255,1);
 }
 
+mainitems ul li {
+  margin-bottom: 10px;
+}
+
+username li {
+  margin-bottom: 3px !important;
+}
 mainitems ul li i {
   padding-right: 8px;
 }
@@ -382,6 +389,7 @@ sidebar {
   float: left;
   width: 150px;
   margin: 20px;
+  position: fixed;
 }
 
 mainitems {
@@ -486,6 +494,7 @@ loginmodal, mainholder, piecemodal, editpiecemodal, statsmodal, piecesholder {
 piecesholder {
   float:left;
   width: 600px;
+  margin-left: 165px;
 }
 piecesholder div {
   width: 150px;
@@ -510,6 +519,8 @@ mainholder {
 piecemodal img {
   width: 90%;
   margin-left: 5%;
+  padding-bottom:40px;
+  padding-top:40px;
 }
 passwordrecovery {
   display: block;
@@ -518,4 +529,7 @@ passwordrecovery {
 
   margin:auto;
   margin-top: 200px;
+}
+loginmodal{
+
 }

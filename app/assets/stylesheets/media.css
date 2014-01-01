@@ -1,0 +1,15 @@
+@media all and (max-width: 940px) {
+  piecesholder {
+    width: 500px !important;
+  }
+}
+@media all and (max-width: 600px) {
+  piecesholder {
+    width: 389px !important;
+  }
+  .modal {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 25%;
+  }
+}
